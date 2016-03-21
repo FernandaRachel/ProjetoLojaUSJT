@@ -56,15 +56,14 @@ public class FuncionarioDAO {
 		String sqlSelect = "SELECT usuario, senha, rg,  FROM Funcionario WHERE IdFuncionario = ?";
 		// PreparedStatement stm = null;
 		ResultSet rs = null;
-		
+
 		FuncionarioTO to = new FuncionarioTO();
-		
+
 		try (Connection conn = ConnectionFactory.obtemConexao();
 				PreparedStatement stm = conn.prepareStatement(sqlSelect);) {
 
 			stm.setInt(1, id);
-			
-			
+
 			if (rs.next()) {
 				to.setIdFuncionario(rs.getInt(1));
 				to.setUsuario(rs.getString(2));
@@ -75,13 +74,14 @@ public class FuncionarioDAO {
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-		}return to;
+		}
+		return to;
 	}
 
 	public void excluir(FuncionarioTO to) {
 		String sqlDelete = "DELETE FROM FUNCIONARIO WHERE idFuncionario = ?";
 		// PreparedStatement stm = null; --> DUVIDA (?) Por q o
-		// PreparedStatement n começa como NULL???
+		// PreparedStatement n comeÃ§a como NULL???
 
 		try (Connection conn = ConnectionFactory.obtemConexao();
 				PreparedStatement stm = conn.prepareStatement(sqlDelete);) {
