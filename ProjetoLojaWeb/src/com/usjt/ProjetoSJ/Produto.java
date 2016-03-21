@@ -4,28 +4,28 @@ import com.usjt.DAO.ProdutoDAO;
 import com.usjt.TO.ProdutoTO;
 
 public class Produto {
-	
-	private int qtd, id;
-    private double valor; 
-    private String nome, marca, fornecedor; 
 
-	   public Produto(int id, int qtd, double valor, String nome, String marca, String fornecedor){
-	      this.id = id;
-	      this.qtd = qtd;
-	      this.valor = valor;
-	      this.nome = nome;
-	      this.marca = marca;
-	      this.fornecedor = fornecedor;
-	   }
-	   
-	   public Produto(){
-	   
-	   }
-	   
-	   public Produto(int id){
-	      this.id = id;
-	   }
-	 
+	private int qtd, id;
+	private double valor;
+	private String nome, marca, fornecedor;
+
+	public Produto(int id, int qtd, double valor, String nome, String marca, String fornecedor) {
+		this.id = id;
+		this.qtd = qtd;
+		this.valor = valor;
+		this.nome = nome;
+		this.marca = marca;
+		this.fornecedor = fornecedor;
+	}
+
+	public Produto() {
+
+	}
+
+	public Produto(int id) {
+		this.id = id;
+	}
+
 	public int getQtd() {
 		return qtd;
 	}
@@ -75,42 +75,43 @@ public class Produto {
 	}
 
 	public void criar() {
-	   ProdutoDAO dao = new ProdutoDAO();
-	   ProdutoTO to = new ProdutoTO();
-	   to.setId(id);
-	   to.setQtd(qtd);
-	   to.setValor(valor);
-	   to.setNome(nome);
-	   to.setMarca(marca);		
-	   dao.incluir(to);
-	   }
-	public void atualizar(){
 		ProdutoDAO dao = new ProdutoDAO();
 		ProdutoTO to = new ProdutoTO();
 		to.setId(id);
-   		to.setQtd(qtd);
-   		to.setValor(valor);
-   		to.setNome(nome);
-   		to.setMarca(marca);	
+		to.setQtd(qtd);
+		to.setValor(valor);
+		to.setNome(nome);
+		to.setMarca(marca);
+		dao.incluir(to);
+	}
+
+	public void atualizar() {
+		ProdutoDAO dao = new ProdutoDAO();
+		ProdutoTO to = new ProdutoTO();
+		to.setId(id);
+		to.setQtd(qtd);
+		to.setValor(valor);
+		to.setNome(nome);
+		to.setMarca(marca);
 		dao.atualizar(to);
 	}
-	
-	public void delete(){
+
+	public void delete() {
 		ProdutoDAO dao = new ProdutoDAO();
 		ProdutoTO to = new ProdutoTO();
 		to.setId(id);
 		dao.excluir(to);
 	}
-	
-	public void carregar(){
+
+	public void carregar() {
 		ProdutoDAO dao = new ProdutoDAO();
 		ProdutoTO to = new ProdutoTO();
 		to.setId(id);
-   		to.setQtd(qtd);
-   		to.setValor(valor);
-   		to.setNome(nome);
-   		to.setMarca(marca);
-   		dao.carregar(to);
+		to.setQtd(qtd);
+		to.setValor(valor);
+		to.setNome(nome);
+		to.setMarca(marca);
+		dao.carregar(id);
 	}
 
 }
