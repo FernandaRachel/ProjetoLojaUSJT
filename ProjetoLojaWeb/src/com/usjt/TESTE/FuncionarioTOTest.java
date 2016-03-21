@@ -10,17 +10,17 @@ import com.usjt.TO.FuncionarioTO;
 public class FuncionarioTOTest {
 
 	FuncionarioTO to = new FuncionarioTO();
-	
-	@Before 
-	public void ValoresdeInserção(){
+
+	@Before
+	public void ValoresdeInserção() {
 		to.setIdFuncionario(100);
 		to.setUsuario("Joaozinho");
 		to.setSenha("123456");
 		to.setRg("246");
 		to.setLogado(true);
-		
+
 	}
-	
+
 	@Test
 	public void TesteGets() {
 		assertEquals("OGetDeIdÉ100", to.getIdFuncionario(), 100);

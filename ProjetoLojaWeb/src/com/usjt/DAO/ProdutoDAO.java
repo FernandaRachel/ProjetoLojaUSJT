@@ -6,8 +6,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import org.apache.tomcat.dbcp.dbcp.ConnectionFactory;
-
 import com.usjt.TO.ProdutoTO;
 import com.usjt.ProjetoSJ.ConnectionFactory;
 
@@ -41,7 +39,6 @@ public class ProdutoDAO {
 	      try (Connection conn = ConnectionFactory.obtemConexao();
 		    	  PreparedStatement stm = conn.prepareStatement(sqlDelete);){
 	    	  
-	         stm = conn.prepareStatement(sqlDelete);
 	         stm.setInt(1, to.getId());
 	         stm.execute();         
 	      }
@@ -62,7 +59,6 @@ public class ProdutoDAO {
 	     
 	      try (Connection conn = ConnectionFactory.obtemConexao();
 		    	  PreparedStatement stm = conn.prepareStatement(sqlSelect);) {
-	         stm = conn.prepareStatement(sqlSelect);
 	         stm.setInt(1, to.getId());
 	         rs = stm.executeQuery();
 	      
@@ -85,9 +81,9 @@ public class ProdutoDAO {
 	      
 	      
 	      try (Connection conn = ConnectionFactory.obtemConexao();
-		    	  PreparedStatement stm = conn.prepareStatement(sqlUpdate);){
+		    	  PreparedStatement stm = conn.prepareStatement(sqlUpdate))
+		  {
 	    	  
-	         stm = conn.prepareStatement(sqlUpdate);
 	         stm.setInt(1, to.getQtd());
 	         stm.setDouble(2, to.getValor());
 	         stm.setString(3, to.getNome());

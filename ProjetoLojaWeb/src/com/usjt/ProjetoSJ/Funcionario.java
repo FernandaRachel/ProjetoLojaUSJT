@@ -11,7 +11,6 @@ public class Funcionario {
 	   private String rg;
 	   private boolean logado = false;
 	   
-	   
 	public int getIdFuncionario() {
 		return idFuncionario;
 	}
@@ -68,13 +67,15 @@ public class Funcionario {
 		to.setIdFuncionario(idFuncionario);
 		dao.excluir(to);
 	}
-	/*public void carregar() {
+	public void carregar() {
 		FuncionarioDAO dao = new FuncionarioDAO();
 		FuncionarioTO to = dao.carregar(idFuncionario);
-		to.setUsuario(usuario);
-		to.setSenha(senha);
-		to.setRg(rg);
-	}*/ 
+		//idFuncionario = to.getIdFuncionario();
+		usuario = to.getUsuario();
+		senha = to.getSenha();
+		rg = to.getRg();
+	
+	}
 	
 	@Override
 	public String toString() {
