@@ -45,7 +45,6 @@ public class ProdutoController extends HttpServlet {
 		if (event.equals("Adicionar Produto")) {
 		
 			p.criar();
-			p.carregar();
 
 			PrintWriter out = response.getWriter();
 			out.println("<html><head><title>Produto Cadastrado</title></head><body>");
@@ -58,8 +57,28 @@ public class ProdutoController extends HttpServlet {
 		}
 		else if(event.equals("Excluir Produto")){
 			p.delete();
+			
+			PrintWriter out = response.getWriter();
+			out.println("<html><head><title>Produto Cadastrado</title></head><body>");
+			out.println("id: " + p.getId() + "<br>");
+			out.println("nome: " + p.getNome() + "<br>");
+			out.println("valor: " + p.getValor() + "<br>");
+			out.println("marca: " + p.getMarca() + "<br>");
+			out.println("fornecedor: " + p.getFornecedor() + "<br>");
+			out.println("</body></html>");
+
 		} else if(event.equals("Atualizar")){
 			p.atualizar();
+			
+			PrintWriter out = response.getWriter();
+			out.println("<html><head><title>Produto Cadastrado</title></head><body>");
+			out.println("id: " + p.getId() + "<br>");
+			out.println("nome: " + p.getNome() + "<br>");
+			out.println("valor: " + p.getValor() + "<br>");
+			out.println("marca: " + p.getMarca() + "<br>");
+			out.println("fornecedor: " + p.getFornecedor() + "<br>");
+			out.println("</body></html>");
+
 		}else {
 			p.carregar();
 			
