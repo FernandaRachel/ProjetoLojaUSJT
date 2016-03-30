@@ -1,16 +1,10 @@
 package com.usjt.DAO;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
 
 import com.usjt.ProjetoSJ.ConnectionFactory;
 import com.usjt.TO.FuncionarioTO;
-
-import java.sql.*;
 
 public class FuncionarioDAO {
 
@@ -55,7 +49,7 @@ public class FuncionarioDAO {
 	public FuncionarioTO carregar(int id) {
 		String sqlSelect = "SELECT usuario, senha, rg,  FROM Funcionario WHERE IdFuncionario = ?";
 		// PreparedStatement stm = null;
-		ResultSet rs = null;
+		//ResultSet rs = null;
 
 		FuncionarioTO to = new FuncionarioTO();
 
@@ -64,14 +58,14 @@ public class FuncionarioDAO {
 
 			stm.setInt(1, id);
 
-			if (rs.next()) {
+		/*	if (rs.next()) {
 				to.setIdFuncionario(rs.getInt(1));
 				to.setUsuario(rs.getString(2));
 				to.setSenha(rs.getString(3));
 				to.setRg(rs.getString(4));
 
 				stm.setInt(4, to.getIdFuncionario());
-			}
+			}*/
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
